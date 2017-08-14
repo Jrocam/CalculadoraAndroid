@@ -33,8 +33,14 @@ public class MainActivity extends AppCompatActivity {
         String buton = (String) b.getText();
         String loquehay = (String) total.getText();
         int antes = Integer.parseInt(loquehay);
-        n = (antes*10)+Integer.parseInt(buton);
-        total.setText(String.valueOf(n));
+        if (noHaEntrado){
+            n = (antes*10)+Integer.parseInt(buton);
+            total.setText(String.valueOf(n));
+        }else{
+            n =Integer.parseInt(buton);
+            total.setText(String.valueOf(n));
+        }
+
 
     }
     public void onOperacionClick(View view) {
@@ -44,6 +50,45 @@ public class MainActivity extends AppCompatActivity {
         if(noHaEntrado){
             n1 = n;
             op = buton;
+            /*if (!Objects.equals(tot, "0")){
+                if(Objects.equals(buton, "+")){
+                    total.setText("0");
+                    pila.append(tot+" ");
+                    n1=tot;
+                    pila.append("+ ");
+                    noHaEntrado=false;
+                }
+                if(Objects.equals(buton, "-")){
+                    total.setText("0");
+                    pila.append(tot+" ");
+                    n1=tot;
+                    pila.append("- ");
+                    noHaEntrado=false;
+                }
+                if(Objects.equals(buton, "=")){
+                    pila.setText("");
+                    total.setText("0");
+                    noHaEntrado=true;
+                }
+            }else{
+                if(Objects.equals(buton, "+")){
+                    total.setText("0");
+                    pila.append(num+" ");
+                    pila.append("+ ");
+                    noHaEntrado=false;
+                }
+                if(Objects.equals(buton, "-")){
+                    total.setText("0");
+                    pila.append(num+" ");
+                    pila.append("- ");
+                    noHaEntrado=false;
+                }
+                if(Objects.equals(buton, "=")){
+                    pila.setText("");
+                    total.setText("0");
+                    noHaEntrado=true;
+                }
+            }*/
             if(Objects.equals(buton, "+")){
                 total.setText("0");
                 pila.append(num+" ");
@@ -65,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             if(Objects.equals(buton, "+")){
                 total.setText("0");
-                pila.append(n1+" ");
+                pila.append(n+" ");
                 tot = n1+n;
                 n1=tot;
                 total.setText(String.valueOf(tot));
@@ -74,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if(Objects.equals(buton, "-")){
                 total.setText("0");
-                pila.append(n1+" ");
+                pila.append(n+" ");
                 tot = n1-n;
                 n1=tot;
                 total.setText(String.valueOf(tot));
